@@ -1,6 +1,3 @@
-# frozen_string_literal: true
-
-# Controller for Route class
 class RoutesController < ApplicationController
   before_action :set_route, only: %i[show edit update destroy]
 
