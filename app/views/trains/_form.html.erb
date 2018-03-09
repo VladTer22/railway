@@ -1,9 +1,14 @@
 <%= form_with(model: train) do |form| %>
-  <%= render 'common/error_html', resource: @route %>
+  <%= render 'common/error_html', resource: @train %>
 
   <div class="field">
     <%= form.label :number %>
     <%= form.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :route %>
+    <%= form.collection_select :route_id, Route.all, :id, :title %>
   </div>
 
   <div class="actions">
