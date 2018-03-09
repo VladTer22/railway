@@ -29,10 +29,8 @@ class TrainsController < ApplicationController
     respond_to do |format|
       if @train.update(train_params)
         format.html { redirect_to @train, notice: 'Train was successfully updated.' }
-        format.json { render :show, status: :ok, location: @train }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @train.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,6 +50,6 @@ class TrainsController < ApplicationController
   end
 
   def train_params
-    params.require(:train).permit(:number)
+    params.require(:train).permit(:number, :route_id)
   end
 end

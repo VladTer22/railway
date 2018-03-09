@@ -1,5 +1,5 @@
 class Train < ApplicationRecord
-  validates :title, presence: true
+  validates :number, presence: true
 
   belongs_to :route
 
