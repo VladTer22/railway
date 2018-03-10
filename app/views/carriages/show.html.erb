@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Type</th>
+    <th>Number of up seats</th>
+    <th>Number of down seats</th>
+    <th>Train number</th>
+    <th colspan="1"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render @carriage %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_carriage_path(@carriage) %> |
+<%= link_to 'Back', carriages_path %>
