@@ -1,0 +1,9 @@
+<tr>
+  <td><%= "#{carriage.compartment ? 'compartment' : 'econom-class'}" %></td>
+  <td><%= carriage.up_seats %></td>
+  <td><%= carriage.down_seats %></td>
+  <td><%= "#{carriage.trains_ids.number}" %></td>
+  <td><%= link_to 'Show', carriage %></td>
+  <td><%= link_to 'Edit', edit_carriage_path(carriage) %></td>
+  <td><%= link_to 'Destroy', carriage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

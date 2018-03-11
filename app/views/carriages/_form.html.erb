@@ -1,0 +1,28 @@
+<%= form_with(model: carriage) do |form| %>
+  <%= render 'common/error_html', resource: @carriage %>
+
+  <div class="field">
+    <%= form.label 'Compartment' %>
+    <%= form.check_box :compartment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :up_seats %>
+    <%= form.number_field :up_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :down_seats %>
+    <%= form.number_field :down_seats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :train %>
+    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
