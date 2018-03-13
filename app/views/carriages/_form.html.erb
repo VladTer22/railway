@@ -2,8 +2,8 @@
   <%= render 'common/error_html', resource: @carriage %>
 
   <div class="field">
-    <%= form.label 'Compartment' %>
-    <%= form.check_box :compartment %>
+    <%= form.label :number %>
+    <%= form.number_field :number  %>
   </div>
 
   <div class="field">
@@ -19,6 +19,11 @@
   <div class="field">
     <%= form.label :train %>
     <%= form.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.collection_select :type, Carriage.types, :id, :type %>
   </div>
 
 

@@ -4,11 +4,11 @@
   <strong>Number:</strong>
   <%= @train.number %>
   <strong>Carriages:</strong>
-  <%= "Compartment:  #{@train.carriages.count { |x| x.compartment }}" %>
-  <%= "Econom-class:  #{@train.carriages.count { |x| !x.compartment }}" %> <br>
-  <strong>Number of places</strong>
-  <%= "Up places: #{@train.carriages.inject(0){|sum,x| sum + x.up_seats }}" %>
-  <%= "Down places: #{@train.carriages.inject(0){|sum,x| sum + x.down_seats }}" %> <br>
+  <ul>
+  <% @train.carriages.each do |x|  %>
+  <li><%= link_to "#{x.number}", carriage_path(x) %></li>
+  <% end %>
+  </ul>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
