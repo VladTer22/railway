@@ -60,5 +60,4 @@ class RailwayStationsController < ApplicationController
   def railway_station_params
     params.require(:railway_station).permit(:title, :number)
   end
-
 end

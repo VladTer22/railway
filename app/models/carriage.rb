@@ -4,7 +4,6 @@ class Carriage < ApplicationRecord
   validates :train_id, :number, presence: true
   validates :number, uniqueness: { scope: :train_id }
 
-
   before_validation :give_number
 
   protected
