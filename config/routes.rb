@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :trains
-  resources :railway_stations
+  resources :railway_stations do
+    member do
+      post :update_position
+    end
+  end
   resources :routes
   resources :carriages
   get 'welcome/index'
