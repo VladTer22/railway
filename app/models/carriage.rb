@@ -1,4 +1,6 @@
 class Carriage < ApplicationRecord
+  TYPES = %w[CoupeCarriage SleepCarriage EconomyCarriage SittingCarriage].freeze
+
   belongs_to :trains_ids, class_name: 'Train', foreign_key: :train_id
 
   validates :train_id, :number, presence: true
@@ -13,6 +15,6 @@ class Carriage < ApplicationRecord
   end
 
   def max_number
-    @train.carriages.pluck(:number).max || 0
+    Train.find(train_id).carriages.pluck(:number).max || 0
   end
 end
