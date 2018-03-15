@@ -15,7 +15,7 @@
 
   <tbody>
   <% @carriage.each do |carriage| %>
-      <%= render carriage %>
+      <%= render carriage.becomes(Carriage) %>
     <% end %>
   </tbody>
 </table>
