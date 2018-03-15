@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_23_154429) do
+ActiveRecord::Schema.define(version: 2021_02_24_092946) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer "up_seats"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_02_23_154429) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "route_id"
     t.integer "current_station_id"
+    t.boolean "direction"
     t.index ["route_id"], name: "index_trains_on_route_id"
   end
 
