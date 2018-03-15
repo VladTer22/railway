@@ -1,5 +1,5 @@
 class TrainsController < ApplicationController
-  before_action :set_train, only: %i[ show edit update destroy ]
+  before_action :set_train, only: %i[show edit update destroy]
 
   def index
     @trains = Train.all
@@ -50,6 +50,6 @@ class TrainsController < ApplicationController
   end
 
   def train_params
-    params.require(:train).permit(:number, :route_id, :current_station_id)
+    params.require(:train).permit(:number, :route_id, :current_station_id, :direction)
   end
 end
