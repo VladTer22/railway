@@ -1,33 +1,48 @@
-<%= form_with(model: carriage) do |form| %>
+<%= form_with(model: carriage) do |f| %>
   <%= render 'common/error_html', resource: @carriage %>
 
   <div class="field">
-    <%= form.label :number %>
-    <%= form.number_field :number  %>
+    <%= f.label :number %>
+    <%= f.number_field :number  %>
   </div>
 
   <div class="field">
-    <%= form.label :up_seats %>
-    <%= form.number_field :up_seats %>
+    <%= f.label :train %>
+    <%= f.collection_select :train_id, Train.all, :id, :number %>
   </div>
 
-  <div class="field">
-    <%= form.label :down_seats %>
-    <%= form.number_field :down_seats %>
+  <div class="field choose">
+    <%= f.label :type %><br>
+    <%= f.select :type, Carriage::TYPES, selected: @carriage.type || 'EconomyCarriage' %>
   </div>
 
-  <div class="field">
-    <%= form.label :train %>
-    <%= form.collection_select :train_id, Train.all, :id, :number %>
+  <div class="field top_seats seats">
+    <%= f.label :up_seats %><br>
+    <%= f.number_field :up_seats %>
   </div>
 
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.collection_select :type, Carriage.types, :id, :type %>
+  <div class="field bottom_seats seats">
+    <%= f.label :down_seats %><br>
+    <%= f.number_field :down_seats %>
+  </div>
+
+  <div class="field side_top_seats seats">
+    <%= f.label :side_seats_top %><br>
+    <%= f.number_field :side_seats_top %>
+  </div>
+
+  <div class="field side_bottom_seats seats">
+    <%= f.label :side_seats_bottom %><br>
+    <%= f.number_field :side_seats_bottom %>
+  </div>
+
+  <div class="field sitting_seats seats">
+    <%= f.label :sitting_seats %><br>
+    <%= f.number_field :sitting_seats %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
