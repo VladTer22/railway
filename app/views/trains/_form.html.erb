@@ -12,6 +12,11 @@
     <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
   </div>
 
+  <div class="field">
+    <%= form.label :direction %>
+    <%= form.check_box :direction %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
