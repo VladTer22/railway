@@ -1,5 +1,5 @@
 class CarriagesController < ApplicationController
-  before_action :set_carriage, only: %i[show edit update destroy]
+  before_action :find_carriage, only: %i[show edit update destroy]
 
   def index
     @carriage = Carriage.all
@@ -18,7 +18,7 @@ class CarriagesController < ApplicationController
 
     respond_to do |format|
       if @carriage.save
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully created.' }
+        format.html { redirect_to @carriage.becomes(Carriage), notice: 'Carriage was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -28,7 +28,7 @@ class CarriagesController < ApplicationController
   def update
     respond_to do |format|
       if @carriage.update(carriage_params)
-        format.html { redirect_to @carriage, notice: 'Carriage was successfully updated.' }
+        format.html { redirect_to @carriage.becomes(Carriage), notice: 'Carriage was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -45,11 +45,13 @@ class CarriagesController < ApplicationController
 
   private
 
-  def set_carriage
+
+  def find_carriage
     @carriage = Carriage.find(params[:id])
   end
 
   def carriage_params
-    params.require(:carriage).permit(:number, :up_seats, :down_seats, :train_id)
+    params.require(:carriage).permit(:number, :up_seats, :down_seats, :train_id, \
+                                     :sitting_seats, :side_seats_top, :side_seats_bottom, :type)
   end
 end
