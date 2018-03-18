@@ -29,18 +29,31 @@
     <th colspan="3"></th>
     </thead>
     <tbody>
-    <% @route.railway_stations.ordered.each do |station| %>
-      <li>
-        <p><strong><%= station.title %></strong>
-          <%= form_tag update_position_railway_station_path(station.id), method: :post do %>
-            <%= hidden_field_tag :route_id, @route.id %>
-            <%= label_tag :number %>
-            <%= number_field_tag :number, station.index(@route.id) %>
-            <%= submit_tag 'Save' %>
-          <% end %>
-        </p>
-      </li>
-    <% end %>
+    <ul>
+      <% @route.railway_stations.ordered.each do |station| %>
+
+        <li>
+          <p><strong><%= station.title %></strong>
+            <%= render 'common/error_html', resource: @route %>
+            <%= form_tag update_position_railway_station_path(station.id), method: :post do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= label_tag :number %>
+              <%= number_field_tag :number, station.index(@route.id) %>
+              <%= submit_tag 'Update position' %>
+            <% end %>
+            <%= form_tag update_time_railway_station_path(station.id), method: :post do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= label_tag :departure_time %>
+              <%= datetime_local_field :departure_time, station.departure_time(@route.id) %>
+              <%= label_tag :arrival_time %>
+              <%= datetime_local_field :arrival_time, station.arrival_time(@route.id) %>
+              <%= label_tag "Current times: #{station.departure_time(@route.id)} - #{station.arrival_time(@route.id)}" %>
+              <%= submit_tag 'Update time' %>
+            <% end %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
     </tbody>
   </table>
 <% end %>
