@@ -11,6 +11,16 @@ class RailwayStation < ApplicationRecord
       .order('railway_stations_routes.number').uniq
   }
 
+  def update_departure_time(route, time)
+    staion_route = station_route(route)
+    staion_route&.update(departure_time: time[0])
+  end
+
+  def update_arrival_time(route, time)
+    staion_route = station_route(route)
+    staion_route&.update(arrival_time: time[0])
+  end
+
   def update_position(route, index)
     staion_route = station_route(route)
     staion_route&.update(number: index)
@@ -20,9 +30,17 @@ class RailwayStation < ApplicationRecord
     station_route(route)&.number
   end
 
+  def departure_time(route)
+    station_route(route)&.departure_time
+  end
+
+  def arrival_time(route)
+    station_route(route)&.arrival_time
+  end
+
   protected
 
   def station_route(route)
-    @station_route ||= railway_stations_routes.where(route: route).first
+    @station_route = railway_stations_routes.where(route: route).first
   end
 end

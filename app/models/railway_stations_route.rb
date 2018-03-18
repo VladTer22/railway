@@ -4,4 +4,6 @@ class RailwayStationsRoute < ApplicationRecord
 
   validates :number, uniqueness: { scope: :route_id }
   validates :railway_station_id, uniqueness: { scope: :route_id }
+  validates :arrival_time, :departure_time, presence: true
+
 end
