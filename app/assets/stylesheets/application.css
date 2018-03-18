@@ -25,3 +25,11 @@ body footer
     position: fixed;
     bottom: 0;
 }
+
+table,
+th,
+td {
+    padding: 10px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
