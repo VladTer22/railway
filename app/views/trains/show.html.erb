@@ -9,6 +9,7 @@
   <li><%= link_to "#{x.number}", carriage_path(x) %></li>
   <% end %>
   </ul>
+  <%= link_to 'New carriage', new_train_carriage_path(@train) %>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
