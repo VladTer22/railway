@@ -1,0 +1,14 @@
+<h1>Search</h1>
+<%= form_tag search_path do %>
+  <div>
+    <p>First Station</p>
+    <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title) %>
+  </div>
+  <div>
+    <p>Last Station</p>
+    <%= select_tag :end_station, options_from_collection_for_select(@stations, :id, :title) %>
+  </div>
+  <div>
+    <p><%= submit_tag "Search" %></p>
+  </div>
+<% end %>
