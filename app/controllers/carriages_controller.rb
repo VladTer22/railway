@@ -18,7 +18,7 @@ class CarriagesController < ApplicationController
 
     respond_to do |format|
       if @carriage.save
-        format.html { redirect_to @carriage.becomes(Carriage), notice: 'Carriage was successfully created.' }
+        format.html { redirect_to @train, notice: 'Carriage was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -38,7 +38,7 @@ class CarriagesController < ApplicationController
   def destroy
     @carriage.destroy
     respond_to do |format|
-      format.html { redirect_to carriages_url, notice: 'Carriage was successfully destroyed.' }
+      format.html { redirect_to carriage_url, notice: 'Carriage was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
