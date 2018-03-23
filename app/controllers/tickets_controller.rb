@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_train, only: %i[new create]
   before_action :appoint_stations, only: %i[create]
 

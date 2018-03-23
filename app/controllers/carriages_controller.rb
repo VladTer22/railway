@@ -1,4 +1,5 @@
 class CarriagesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_carriage, only: %i[show edit update destroy]
 
   def index
