@@ -1,0 +1,23 @@
+<p>
+  <strong>Ticket id</strong>
+  <%= @ticket.id %> <br>
+  <strong>User</strong>
+  <%= @ticket.user.id %> <br>
+  <strong>User name</strong>
+  <%= @ticket.user_first_name %> <br>
+  <strong>User last name</strong>
+  <%= @ticket.user_last_name %> <br>
+  <strong>User middle name</strong>
+  <%= @ticket.user_middle_name %> <br>
+  <strong>User passport</strong>
+  <%= @ticket.user_passport %> <br>
+  <strong>From</strong>
+  <%= @ticket.start_station.title %> <br>
+  <strong>To</strong>
+  <%= @ticket.end_station.title %> <br>
+  <strong>Train</strong>
+  <%= @ticket.train.number %> <br>
+</p>
+
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
+<%= link_to 'Back', admin_tickets_path %>
