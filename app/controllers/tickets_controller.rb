@@ -3,9 +3,15 @@ class TicketsController < ApplicationController
   before_action :find_train, only: %i[new create]
   before_action :appoint_stations, only: %i[create]
 
-
   def index
-    @tickets = Ticket.all
+    @tickets = current_user.tickets
+  end
+
+  def show
+    @ticket = Ticket.find(params[:id])
+    return @ticket if current_user.tickets.includes(@ticket)
+
+    redirect_to root_path, alert: 'You don\'t have enough rights to access this page!'
   end
 
   def new
@@ -19,9 +25,9 @@ class TicketsController < ApplicationController
     p[:start_station] = @start_station
     p[:end_station] = @end_station
     @ticket = @train.tickets.build(p)
-    @ticket.user = User.first
+    @ticket.user = current_user
     if @ticket.save
-      redirect_to tickets_path(@start_station,@end_station), notice: 'Ticket was successfully created.'
+      redirect_to tickets_path(@start_station, @end_station), notice: 'Ticket was successfully created.'
     else
       redirect_to new_train_ticket_path(@train)
     end
