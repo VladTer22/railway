@@ -7,4 +7,6 @@
   <td><%= ticket.user_passport %></td>
   <td><%= ticket.start_station.title %></td>
   <td><%= ticket.end_station.title %></td>
+  <td><%= link_to 'Show', ticket_path(ticket) %></td>
+  <td><%= link_to 'Destroy', ticket_path(ticket), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
