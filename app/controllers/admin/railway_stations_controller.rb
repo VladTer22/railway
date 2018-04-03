@@ -58,7 +58,7 @@ module Admin
     def destroy
       @railway_station.destroy
       respond_to do |format|
-        format.html { redirect_to railway_stations_url, notice: 'Railway station was successfully destroyed.' }
+        format.html { redirect_to admin_railway_stations_url, notice: 'Railway station was successfully destroyed.' }
       end
     end
 

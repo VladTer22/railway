@@ -34,7 +34,7 @@ module Admin
 
     def destroy
       @route.destroy
-      redirect_to routes_path
+      redirect_to admin_routes_path
     end
 
     private

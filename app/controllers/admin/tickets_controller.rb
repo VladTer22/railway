@@ -33,7 +33,7 @@ module Admin
 
     def ticket_params
       params.require(:ticket).permit(:user_first_name, :user_last_name, :user_middle_name, :user_passport, \
-                                   :start_station, :end_station)
+                                     :start_station, :end_station)
     end
   end
 end

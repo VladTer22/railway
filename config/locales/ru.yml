@@ -1,0 +1,20 @@
+ru:
+  common:
+    back: 'Назад'
+    errors: 'При заполнении возникли ошибки'
+  admin:
+    trains:
+      new:
+        title: 'Создать поезд'
+      form:
+        submit: "%{action} поезд"
+    railway_stations:
+      new:
+        title: 'Создать станцию'
+      form:
+        submit: '%{action} станцию'
+    carriages:
+      new:
+        title: 'Создать вагон'
+      form:
+        submit: '%{action} вагон'

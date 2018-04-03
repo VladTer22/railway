@@ -1,4 +1,4 @@
-<%= form_with(model: train) do |form| %>
+<%= form_with(model: [:admin, train]) do |form| %>
   <%= render 'common/error_html', resource: @train %>
 
   <div class="field">
@@ -18,6 +18,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить') %>
   </div>
 <% end %>

@@ -1,0 +1,32 @@
+ru:
+  activerecord:
+    models:
+      coupe_carriage: 'Вагон с купе'
+      economy_carriage: 'Плацкарт'
+      sitting_carriage: 'Сидящий вагон'
+      sleep_carriage: 'Спящий вагон'
+      railway_station: 'Станция'
+      train: 'Поезд'
+      carriage: 'Вагон'
+      route: 'Маршрут'
+      ticket: 'Билет'
+      user: 'Пользователь'
+    attributes:
+      train:
+        number: 'Номер'
+        route: 'Маршрут'
+        direction: 'Направление'
+      railway_station:
+        title: 'Название'
+      carriage:
+        number: 'Номер'
+        train: 'Поезд'
+        type: 'Тип'
+        up_seats: 'Верхние полки'
+        down_seats: 'Нижние полки'
+        side_seats_top: 'Боковые верхние полки'
+        side_seats_bottom: 'Боковые нижние полки'
+        sitting_seats: 'Сидячие места'
+    errors:
+      messages:
+        blank: 'не может быть пустым'

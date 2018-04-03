@@ -10,6 +10,7 @@ module Admin
 
     def new
       @carriage = Carriage.new
+      @train = Train.find(params[:train_id])
     end
 
     def edit; end
@@ -39,7 +40,7 @@ module Admin
     def destroy
       @carriage.destroy
       respond_to do |format|
-        format.html { redirect_to carriage_url, notice: 'Carriage was successfully destroyed.' }
+        format.html { redirect_to admin_carriage_url, notice: 'Carriage was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -52,7 +53,7 @@ module Admin
 
     def carriage_params
       params.require(:carriage).permit(:number, :up_seats, :down_seats, :train_id, \
-                                     :sitting_seats, :side_seats_top, :side_seats_bottom, :type)
+                                       :sitting_seats, :side_seats_top, :side_seats_bottom, :type)
     end
   end
 end
