@@ -1,0 +1,3 @@
+<p>Hello, <%= "#{@user.first_name} #{@user.last_name}" %></p>
+<p>You've returned the ticket on route "<%= @ticket.route_name %>"</p>
+<p>All your ticket you can see <%= link_to 'here', tickets_url(@user) %></p>
