@@ -19,7 +19,7 @@ module Admin
 
       respond_to do |format|
         if @railway_station.save
-          format.html { redirect_to @railway_station, notice: 'Railway station was successfully created.' }
+          format.html { redirect_to admin_railway_station_path(@railway_station), notice: 'Railway station was successfully created.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end
@@ -29,7 +29,7 @@ module Admin
     def update
       respond_to do |format|
         if @railway_station.update(railway_station_params)
-          format.html { redirect_to @railway_station, notice: 'Railway station was successfully updated.' }
+          format.html { redirect_to admin_railway_station_path(@railway_station), notice: 'Railway station was successfully updated.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
@@ -39,9 +39,9 @@ module Admin
     def update_position
       route = Route.find(params[:route_id])
       if @railway_station.update_position(route, params[:number])
-        redirect_to route_url(route), notice: 'Station index was successfully updated.'
+        redirect_to admin_routes_path(route), notice: 'Station index was successfully updated.'
       else
-        redirect_to route_url(route)
+        redirect_to admin_routes_path(route)
       end
     end
 
@@ -49,9 +49,9 @@ module Admin
       route = Route.find(params[:route_id])
       if @railway_station.update_arrival_time(route, params[:arrival_time]) \
        && @railway_station.update_departure_time(route, params[:departure_time])
-        redirect_to route_url(route), notice: 'Times were successfully updated.'
+        redirect_to admin_routes_path(route), notice: 'Times were successfully updated.'
       else
-        redirect_to route_url(route)
+        redirect_to admin_routes_path(route)
       end
     end
 
