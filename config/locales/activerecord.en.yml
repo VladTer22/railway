@@ -1,0 +1,32 @@
+en:
+  activerecord:
+    models:
+      coupe_carriage: 'Coupe carriage'
+      economy_carriage: 'Economy carriage'
+      sitting_carriage: 'Sitting carriage'
+      sleep_carriage: 'Sleeping carriage'
+      railway_station: 'Station'
+      train: 'Train'
+      carriage: 'Carriage'
+      route: 'Route'
+      ticket: 'Ticket'
+      user: 'User'
+    attributes:
+      train:
+        number: 'Number'
+        route: 'Route'
+        direction: 'Direction'
+      railway_station:
+        title: 'Title'
+      carriage:
+        number: 'Number'
+        train: 'Train'
+        type: 'Type'
+        up_seats: 'Upper seats'
+        down_seats: 'Bottom seats'
+        side_seats_top: 'Side upper seats'
+        side_seats_bottom: 'Side bottom seats'
+        sitting_seats: 'Sitting seats'
+    errors:
+      messages:
+        blank: "can't be empty"

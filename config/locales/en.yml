@@ -37,3 +37,20 @@ en:
     tickets: 'My tickets'
   common:
     back: 'Back'
+    errors: 'There were error during filling the form'
+  admin:
+    trains:
+      new:
+        title: 'Create train'
+      form:
+        submit: "%{action} train"
+    railway_stations:
+      new:
+        title: 'Create station'
+      form:
+        submit: '%{action} station'
+    carriages:
+      new:
+        title: 'Create carriage'
+      form:
+        submit: '%{action} carriage'
