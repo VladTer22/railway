@@ -36,6 +36,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 
+gem 'rails_12factor'
+
 
 
 
