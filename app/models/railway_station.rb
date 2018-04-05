@@ -6,10 +6,11 @@ class RailwayStation < ApplicationRecord
   has_many :trains, foreign_key: 'current_station_id'
 
   scope :ordered, lambda {
-    select('railway_stations.*, railway_stations_routes.number')
-      .joins(:railway_stations_routes)
-      .order('railway_stations_routes.number').uniq
-  }
+  select('railway_stations.*, railway_stations_routes.position')
+    .joins(:railway_stations_routes)
+    .order('railway_stations_routes.position').uniq
+}
+
 
   def update_departure_time(route, time)
     staion_route = station_route(route)

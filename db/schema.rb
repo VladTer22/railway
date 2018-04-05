@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2021_02_25_104313) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "carriages", force: :cascade do |t|
     t.integer "up_seats"
     t.integer "down_seats"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "train_id"
+    t.bigint "train_id"
     t.string "type"
     t.integer "side_seats_top"
     t.integer "side_seats_bottom"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 2021_02_25_104313) do
   end
 
   create_table "railway_stations_routes", force: :cascade do |t|
-    t.integer "railway_station_id"
-    t.integer "route_id"
+    t.bigint "railway_station_id"
+    t.bigint "route_id"
     t.integer "number"
     t.datetime "arrival_time"
     t.datetime "departure_time"
@@ -49,10 +52,10 @@ ActiveRecord::Schema.define(version: 2021_02_25_104313) do
   end
 
   create_table "tickets", force: :cascade do |t|
-    t.integer "start_station_id"
-    t.integer "end_station_id"
-    t.integer "user_id"
-    t.integer "train_id"
+    t.bigint "start_station_id"
+    t.bigint "end_station_id"
+    t.bigint "user_id"
+    t.bigint "train_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "user_first_name"
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_104313) do
     t.string "number"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "route_id"
+    t.bigint "route_id"
     t.integer "current_station_id"
     t.boolean "direction"
     t.index ["route_id"], name: "index_trains_on_route_id"
