@@ -3,7 +3,7 @@ class Route < ActiveRecord::Base
 
   has_many :trains
   has_many :railway_stations_routes
-  has_many :railway_stations, through: :railway_stations_routes
+  has_many :railway_stations, through: :railway_stations_routes, dependent: :destroy
 
   scope :with_station, ->(station) { Route.joins(:railway_stations).where('railway_stations.id = ?', station.id) }
 

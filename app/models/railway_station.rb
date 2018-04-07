@@ -6,9 +6,9 @@ class RailwayStation < ApplicationRecord
   has_many :trains, foreign_key: 'current_station_id'
 
   scope :ordered, lambda {
-  select('railway_stations.*, railway_stations_routes.position')
+  select('railway_stations.*, railway_stations_routes.number')
     .joins(:railway_stations_routes)
-    .order('railway_stations_routes.position').uniq
+    .order('railway_stations_routes.number').uniq
 }
 
 
