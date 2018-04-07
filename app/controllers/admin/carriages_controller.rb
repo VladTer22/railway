@@ -17,6 +17,7 @@ module Admin
 
     def create
       @carriage = Carriage.new(carriage_params)
+      @train = Train.find(@carriage.train_id)
 
       respond_to do |format|
         if @carriage.save
