@@ -16,7 +16,7 @@ module Admin
 
     def create
       @train = Train.new(train_params)
-      @train.current_station = @train.route.start_station
+      @train.current_station = @train.route.first_station
 
       respond_to do |format|
         if @train.save
