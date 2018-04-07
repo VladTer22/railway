@@ -9,7 +9,6 @@
   <div class="field">
     <%= form.label :route %>
     <%= form.collection_select :route_id, Route.all, :id, :title %>
-    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
   </div>
 
   <div class="field">
