@@ -7,7 +7,7 @@
   <td><%= carriage.side_seats_bottom || "0" %></td>
   <td><%= carriage.sitting_seats || "0" %></td>
   <td><%= carriage.trains_ids.number || "0" %></td>
-  <td><%= link_to 'Show', carriage %></td>
-  <td><%= link_to 'Edit', edit_admin_carriage_path(carriage) %></td>
-  <td><%= link_to 'Destroy', carriage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <td><%= link_to 'Show', admin_carriage_path(carriage) %></td>
+  <td><%= link_to 'Edit', edit_admin_carriage_path(carriage: carriage) %></td>
+  <td><%= link_to 'Destroy', admin_carriage_path(carriage), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>

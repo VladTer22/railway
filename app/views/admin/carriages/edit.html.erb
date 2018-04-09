@@ -2,5 +2,5 @@
 
 <%= render 'form', carriages: @carriage.becomes(Carriage) %>
 
-<%= link_to 'Show', @carriage.becomes(Carriage) %> |
+<%= link_to 'Show', admin_carriage_path(@carriage.becomes(Carriage)) %> |
 <%= link_to t('common.back'), admin_carriage_path %>
