@@ -30,9 +30,9 @@ module Admin
     def update
       respond_to do |format|
         if @train.update(train_params)
-          format.html { redirect_to admin_train_path(@train), notice: 'Train was successfully updated.' }
+          format.html { redirect_to admin_trains_path, notice: 'Train was successfully updated.' }
         else
-          format.html { render :edit, status: :unprocessable_entity }
+          format.html { redirect_to admin_trains_path, alert: 'Number can\'t be blank' }
         end
       end
     end

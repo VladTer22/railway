@@ -1,5 +1,6 @@
-<%= form_with(model: [:admin, route]) do |form| %>
-  <%= render 'common/error_html', resource: @route %>
+<%= form_with(model: [:admin, route], html: { style: "display: #{hidden ? 'none' : 'block'}",\
+                                              id: "edit_route_#{route.id}" }) do |form| %>
+  <%= render 'common/error_html', resource: route %>
 
   <div class="field">
     <%= form.label :title %>

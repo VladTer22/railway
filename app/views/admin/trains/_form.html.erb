@@ -1,5 +1,6 @@
-<%= form_with(model: [:admin, train]) do |form| %>
-  <%= render 'common/error_html', resource: @train %>
+<%= form_with(model: [:admin, train],html: { style: "display: #{hidden ? 'none' : 'block'}",\
+                                              id: "edit_train_#{train.id}" }) do |form| %>
+  <%= render 'common/error_html', resource: train %>
 
   <div class="field">
     <%= form.label :number %>

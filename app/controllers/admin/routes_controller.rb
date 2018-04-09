@@ -26,9 +26,9 @@ module Admin
 
     def update
       if @route.update(route_params)
-        redirect_to admin_routes_path(@route)
+        redirect_to admin_routes_path
       else
-        render :edit
+        redirect_to admin_routes_path, alert: 'Name can\'t be blank'
       end
     end
 
