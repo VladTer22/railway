@@ -1,6 +1,10 @@
 <p>
   <strong>Title:</strong>
-  <%= @railway_station.title %>
+  <%= @railway_station.title %><br>
+  <strong>Trains:</strong><br>
+  <% @railway_station.trains.each do |train| %>
+  <%= link_to train.number, admin_train_path(train) %> <br>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |

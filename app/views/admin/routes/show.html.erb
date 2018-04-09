@@ -11,7 +11,7 @@
     <tbody>
     <% @route.trains.each do |train| %>
       <tr>
-        <td><%= "#{train.number}" %></td>
+        <td><%= link_to train.number, admin_train_path(train) %></td>
       </tr>
     <% end %>
     </tbody>
