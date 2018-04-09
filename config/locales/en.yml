@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  en: "English"
+  ru: "Russian"
   main:
     exit: 'Exit'
     admin: 'Admin panel'

@@ -41,6 +41,12 @@
         <% else %>
           <li><%= link_to t('main.login'), new_user_session_path %></li>
         <% end %>
+        </a>
+          <% I18n.available_locales.each do |lang| %>
+            <li>
+              <%= link_to t(lang), change_locale_path(lang) %>
+            </li>
+          <% end %>
       </ul>
     </div>
   </div>

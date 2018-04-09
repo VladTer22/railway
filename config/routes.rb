@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :tickets, only: %i[new create]
   end
 
+  match 'lang/:locale', to: 'searches#change_locale', as: :change_locale, via: [:get]
+
   namespace :admin do
     resources :railway_stations do
       member do
