@@ -29,25 +29,27 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="<%= current_user.try(:admin?) ? admin_welcome_index_path : search_path %>">Railway</a>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <div class="navbar-collapse collapse navbar-responsive-collapse top">
       <ul class="nav navbar-nav">
         <% if user_signed_in? %>
           <li><%= link_to t('main.exit'), destroy_user_session_path, method: :delete %></li>
           <% if current_user.admin? %>
             <li><%= link_to t('main.admin'), admin_welcome_index_path %></li>
-            <% else %>
+          <% else %>
             <li><%= link_to t('main.tickets'), tickets_path %></li>
           <% end %>
         <% else %>
           <li><%= link_to t('main.login'), new_user_session_path %></li>
         <% end %>
-        </a>
-          <% I18n.available_locales.each do |lang| %>
-            <li>
-              <%= link_to t(lang), change_locale_path(lang) %>
-            </li>
-          <% end %>
+        <% I18n.available_locales.each do |lang| %>
+          <li>
+            <%= link_to t(lang), change_locale_path(lang) %>
+          </li>
+        <% end %>
       </ul>
+      <% if user_signed_in? %>
+        <div class="greeting"><p><%= "Hello, #{current_user.first_name} #{current_user.last_name}" %></p></div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -63,7 +65,8 @@
   </div><!--/row-->
 
   <footer>
-    <p>&copy; Author: Olexandr Voinalovych. <%= link_to 'Source code', 'https://github.com/Flameaxio/railway', target: "_blank" %></p>
+    <p>&copy; Author: Olexandr
+      Voinalovych. <%= link_to 'Source code', 'https://github.com/Flameaxio/railway', target: "_blank" %></p>
   </footer>
 
 </div> <!-- /container -->

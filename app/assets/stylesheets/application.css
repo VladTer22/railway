@@ -25,4 +25,10 @@ body footer
     bottom: 0;
 }
 
+.greeting
+{
+    float: right;
+    transform: translateY(50%);
+}
+
 
