@@ -38,11 +38,11 @@
             <% end %>
             <%= form_tag update_time_admin_railway_station_path(station.id), method: :post do %>
               <%= hidden_field_tag :route_id, @route.id %>
-              <%= label_tag :departure_time %>
-              <%= datetime_local_field :departure_time, station.departure_time(@route.id) %>
               <%= label_tag :arrival_time %>
               <%= datetime_local_field :arrival_time, station.arrival_time(@route.id) %>
-              <%= label_tag "Current times: #{station.departure_time(@route.id)} - #{station.arrival_time(@route.id)}" %>
+              <%= label_tag :departure_time %>
+              <%= datetime_local_field :departure_time, station.departure_time(@route.id) %>
+              <%= label_tag "Current times: #{station.arrival_time(@route.id)} - #{station.departure_time(@route.id)}" %>
               <%= submit_tag 'Update time' %>
             <% end %>
           </p>

@@ -8,6 +8,7 @@
       <p>Arrive time <%= @end_station.arrival_time(route) %></p>
       <h3>Trains</h3>
       <ul>
+        <%= "No trains available" if route.trains.empty? %>
         <% route.trains.each do |train| %>
           <li>
             <p><%= train.number %></p>
