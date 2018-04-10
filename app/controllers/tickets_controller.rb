@@ -2,13 +2,13 @@ class TicketsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_train, only: %i[new create]
   before_action :appoint_stations, only: %i[create]
+  before_action :find_ticket, only: %i[show destroy]
 
   def index
     @tickets = current_user.tickets
   end
 
   def show
-    @ticket = Ticket.find(params[:id])
     return @ticket if current_user.tickets.includes(@ticket)
 
     redirect_to root_path, alert: 'You don\'t have enough rights to access this page!'
@@ -33,6 +33,14 @@ class TicketsController < ApplicationController
     end
   end
 
+  def destroy
+    @ticket.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_tickets_path, notice: 'Ticket was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def appoint_stations
@@ -49,5 +57,9 @@ class TicketsController < ApplicationController
 
   def find_train
     @train = Train.find(params[:train_id])
+  end
+
+  def find_ticket
+    @ticket = Ticket.find(params[:id])
   end
 end
