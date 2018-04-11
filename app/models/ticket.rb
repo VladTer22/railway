@@ -9,6 +9,8 @@ class Ticket < ApplicationRecord
 
   after_destroy :return_notification
 
+  validates :user_first_name, :user_last_name, :user_middle_name, :user_passport, presence: true
+
   def route_name
     "#{start_station.title} - #{end_station.title}"
   end
