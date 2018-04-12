@@ -1,11 +1,11 @@
 <tr>
   <td><%= carriage.type %></td>
   <td><%= carriage.number %></td>
-  <td><%= carriage.up_seats  || "0"%></td>
-  <td><%= carriage.down_seats || "0" %></td>
-  <td><%= carriage.side_seats_top || "0" %></td>
-  <td><%= carriage.side_seats_bottom || "0" %></td>
-  <td><%= carriage.sitting_seats || "0" %></td>
+  <td><%= "#{carriage.occupied_top}/#{carriage.up_seats}"%></td>
+  <td><%= "#{carriage.occupied_bottom}/#{carriage.down_seats}" %></td>
+  <td><%= "#{carriage.occupied_side_top}/#{carriage.side_seats_top}" %></td>
+  <td><%= "#{carriage.occupied_side_bottom}/#{carriage.side_seats_bottom}" %></td>
+  <td><%= "#{carriage.occupied_sitting}/#{carriage.sitting_seats}" %></td>
   <td><%= carriage.trains_ids.number || "0" %></td>
   <td><%= link_to 'Show', admin_carriage_path(carriage) %></td>
   <td><%= link_to 'Edit', edit_admin_carriage_path(carriage: carriage) %></td>

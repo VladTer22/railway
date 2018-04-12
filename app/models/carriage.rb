@@ -14,7 +14,7 @@ class Carriage < ApplicationRecord
     when :bottom
       down_seats - occupied_bottom
     when :top
-      up_seats - occupied_bottom
+      up_seats - occupied_top
     when :side_bottom
       side_seats_bottom - occupied_side_bottom
     when :side_top
