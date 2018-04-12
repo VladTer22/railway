@@ -11,7 +11,18 @@ class Train < ApplicationRecord
   has_many :tickets
 
   has_many :carriages
-  has_many :carriages, ->(train) { order("number #{train.direction ? 'ASC' : 'DESC'}") }
+  has_many :carriages, ->(train) { order("number #{train.direction ? "ASC" : "DESC"}") }
 
   scope :get_number_of_seats, ->(carriage_type, seats_type) { carriages.where(type: carriage_type).sum(seats_type) }
+
+  def occupy(carriage_type, seat)
+    carriage = carriages.find { |car| car.class.to_s == carriage_type && car.available_seats(seat) > 0 }
+    carriage.occupy(seat)
+  end
+
+  def get_carriage_types
+    types = []
+    carriages.each { |car| types << car.class.to_s }
+    types.uniq
+  end
 end

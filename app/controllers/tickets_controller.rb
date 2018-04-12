@@ -24,6 +24,9 @@ class TicketsController < ApplicationController
     p = ticket_params
     p[:start_station] = @start_station
     p[:end_station] = @end_station
+    carriage = p[:carriage_type]
+    seat = p[:seat_type].dehumanize
+    @train.occupy(carriage, seat)
     @ticket = @train.tickets.build(p)
     @ticket.user = current_user
     if @ticket.save
@@ -52,7 +55,7 @@ class TicketsController < ApplicationController
 
   def ticket_params
     params.require(:ticket).permit(:user_first_name, :user_last_name, :user_middle_name, :user_passport, \
-                                   :start_station, :end_station)
+      :start_station, :end_station, :carriage_type, :seat_type)
   end
 
   def find_train

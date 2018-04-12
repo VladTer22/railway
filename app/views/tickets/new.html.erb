@@ -36,6 +36,16 @@
     <%= f.text_field :user_passport %>
   </div>
 
+  <div class="field choose">
+    <%= f.label 'Carriage type' %><br>
+    <%= f.select :carriage_type, @train.get_carriage_types, class: 'carriage'%>
+  </div>
+
+  <div class="field choose seat_type">
+    <%= f.label 'Seat type' %><br>
+    <%= f.select :seat_type, Carriage::SEATS_TYPES.map(&:humanize), class: 'seat_type_select' %>
+  </div>
+
   <div class="field">
     <%= f.submit 'Create Ticket' %><br>
   </div>

@@ -1,4 +1,6 @@
 class Ticket < ApplicationRecord
+  attr_accessor :carriage_type
+
   belongs_to :train
   belongs_to :user
 

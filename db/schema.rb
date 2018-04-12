@@ -10,22 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_104313) do
+ActiveRecord::Schema.define(version: 2021_03_03_155410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "carriages", force: :cascade do |t|
-    t.integer "up_seats"
-    t.integer "down_seats"
+    t.integer "up_seats", default: 0
+    t.integer "down_seats", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "train_id"
     t.string "type"
-    t.integer "side_seats_top"
-    t.integer "side_seats_bottom"
-    t.integer "sitting_seats"
+    t.integer "side_seats_top", default: 0
+    t.integer "side_seats_bottom", default: 0
+    t.integer "sitting_seats", default: 0
     t.integer "number"
+    t.integer "occupied_top", default: 0
+    t.integer "occupied_bottom", default: 0
+    t.integer "occupied_side_top", default: 0
+    t.integer "occupied_side_bottom", default: 0
+    t.integer "occupied_sitting", default: 0
     t.index ["train_id"], name: "index_carriages_on_train_id"
   end
 
@@ -62,6 +67,7 @@ ActiveRecord::Schema.define(version: 2021_02_25_104313) do
     t.text "user_last_name"
     t.text "user_middle_name"
     t.text "user_passport"
+    t.string "seat_type"
     t.index ["end_station_id"], name: "index_tickets_on_end_station_id"
     t.index ["start_station_id"], name: "index_tickets_on_start_station_id"
     t.index ["train_id"], name: "index_tickets_on_train_id"
