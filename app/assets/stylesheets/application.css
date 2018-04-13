@@ -23,6 +23,17 @@ body footer
 {
     position: fixed;
     bottom: 0;
+    width: 200%;
+    background: black;
+    color: white;
+    margin-left: -30%;
+    display: flex;
+    justify-content: center;
+}
+
+body footer p
+{
+    margin-left: -40%;
 }
 
 .greeting
