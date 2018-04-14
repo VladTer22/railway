@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(async function () {
     let selected = $('#ticket_carriage_type').val();
     $('#ticket_seat_type').children().hide();
     change(selected)

@@ -9,7 +9,6 @@ import * as ActiveStorage from "@rails/activestorage"
 import 'channels/routes.js'
 import 'channels/trains.js'
 import 'channels/carriages.js'
-import 'channels/tickets.js'
 
 Rails.start()
 Turbolinks.start()
